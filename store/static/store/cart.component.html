@@ -12,7 +12,7 @@
             = {{item.product.price * item.amount|currency}}
         </li>
         <li class="list-group-item">
-            Items: 0; Total: <b>{{$ctrl.total()|currency}}</b>
+            Items: {{$ctrl.items.length}}; Total: <b>{{$ctrl.total()|currency}}</b>
         </li>
     </ul>
 

@@ -40,7 +40,8 @@ m.config(function ($routeProvider, basePath) {
             }
         }
     });
-
+    
+    
 
 });
 
@@ -54,6 +55,13 @@ m.controller('StoreCtrl', function StoreCtrl(inventory) {
     this.loadingMessage = "Loading inventory...";
     inventory.then(data => {
         this.inventory = data;
+        this.loaded = true;
+    }).catch(()=> {
+        this.loadingMessage = "Something went terribly wrong. sorry."
+    });
+    
+    departments.then(data => {
+        this.deparments = data;
         this.loaded = true;
     }).catch(()=> {
         this.loadingMessage = "Something went terribly wrong. sorry."
@@ -74,3 +82,5 @@ m.controller('StoreCtrl', function StoreCtrl(inventory) {
     };
 
 });
+
+
