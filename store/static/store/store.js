@@ -12,7 +12,7 @@ var m = angular.module("store", ["ngRoute", "dj"]);
 
 
 m.factory('inventory', function InventoryService($http, apiPaths) {
-    return $http.get(apiPaths.product_list).then(resp => resp.data);
+    return $http.get(apiPaths.category_list).then(resp => resp.data);
 });
 
 m.factory('inventoryById', function InventorByIdService(inventory) {
@@ -59,13 +59,7 @@ m.controller('StoreCtrl', function StoreCtrl(inventory) {
     }).catch(()=> {
         this.loadingMessage = "Something went terribly wrong. sorry."
     });
-    
-    departments.then(data => {
-        this.deparments = data;
-        this.loaded = true;
-    }).catch(()=> {
-        this.loadingMessage = "Something went terribly wrong. sorry."
-    });
+
 
     this.cartItems = [];
 
