@@ -75,6 +75,13 @@ m.controller('StoreCtrl', function StoreCtrl(inventory) {
         );
     };
 
+    this.delFromCart = product => {
+        var i = this.cartItems.indexOf(product);
+        if (i > -1) {
+            this.cartItems.splice(i, 1);
+        }
+    };
+
 });
 
 
